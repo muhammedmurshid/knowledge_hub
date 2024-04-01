@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.rule" id="logic_knowledge_hub_rule">
+        <field name="name">Knowledge Hub</field>
+        <field name="model_id" ref="model_knowledge_form"/>
+        <field name="domain_force">['|',('department_id.id', '=', user.employee_id.department_id.id),
+            ('create_uid.id', '=', user.id)]
+        </field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>
